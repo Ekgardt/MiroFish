@@ -1,6 +1,6 @@
 <template>
   <div class="home-container">
-    <!-- 顶部导航栏 -->
+    <!-- Navbar -->
     <nav class="navbar">
       <div class="nav-brand">MIROFISH</div>
       <div class="nav-links">
@@ -12,7 +12,7 @@
     </nav>
 
     <div class="main-content">
-      <!-- 上半部分：Hero 区域 -->
+      <!-- Hero -->
       <section class="hero-section">
         <div class="hero-left">
           <div class="tag-row">
@@ -42,7 +42,6 @@
         </div>
         
         <div class="hero-right">
-          <!-- Logo 区域 -->
           <div class="logo-container">
             <img src="../assets/logo/MiroFish_logo_left.jpeg" alt="MiroFish Logo" class="hero-logo" />
           </div>
@@ -53,9 +52,9 @@
         </div>
       </section>
 
-      <!-- 下半部分：双栏布局 -->
+      <!-- Dashboard -->
       <section class="dashboard-section">
-        <!-- 左栏：状态与步骤 -->
+        <!-- Left panel -->
         <div class="left-panel">
           <div class="panel-header">
             <span class="status-dot">■</span> {{ $t('home.systemStatus') }}
@@ -66,7 +65,6 @@
             {{ $t('home.systemReadyDesc') }}
           </p>
           
-          <!-- 数据指标卡片 -->
           <div class="metrics-row">
             <div class="metric-card">
               <div class="metric-value">{{ $t('home.metricLowCost') }}</div>
@@ -78,55 +76,25 @@
             </div>
           </div>
 
-          <!-- 项目模拟步骤介绍 (新增区域) -->
           <div class="steps-container">
             <div class="steps-header">
                <span class="diamond-icon">◇</span> {{ $t('home.workflowSequence') }}
             </div>
             <div class="workflow-list">
-              <div class="workflow-item">
-                <span class="step-num">01</span>
+              <div class="workflow-item" v-for="n in 5" :key="n">
+                <span class="step-num">{{ String(n).padStart(2, '0') }}</span>
                 <div class="step-info">
-                  <div class="step-title">{{ $t('home.step01Title') }}</div>
-                  <div class="step-desc">{{ $t('home.step01Desc') }}</div>
-                </div>
-              </div>
-              <div class="workflow-item">
-                <span class="step-num">02</span>
-                <div class="step-info">
-                  <div class="step-title">{{ $t('home.step02Title') }}</div>
-                  <div class="step-desc">{{ $t('home.step02Desc') }}</div>
-                </div>
-              </div>
-              <div class="workflow-item">
-                <span class="step-num">03</span>
-                <div class="step-info">
-                  <div class="step-title">{{ $t('home.step03Title') }}</div>
-                  <div class="step-desc">{{ $t('home.step03Desc') }}</div>
-                </div>
-              </div>
-              <div class="workflow-item">
-                <span class="step-num">04</span>
-                <div class="step-info">
-                  <div class="step-title">{{ $t('home.step04Title') }}</div>
-                  <div class="step-desc">{{ $t('home.step04Desc') }}</div>
-                </div>
-              </div>
-              <div class="workflow-item">
-                <span class="step-num">05</span>
-                <div class="step-info">
-                  <div class="step-title">{{ $t('home.step05Title') }}</div>
-                  <div class="step-desc">{{ $t('home.step05Desc') }}</div>
+                  <div class="step-title">{{ $t(`home.step0${n}Title`) }}</div>
+                  <div class="step-desc">{{ $t(`home.step0${n}Desc`) }}</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- 右栏：交互控制台 -->
+        <!-- Right panel -->
         <div class="right-panel">
           <div class="console-box">
-            <!-- 上传区域 -->
             <div class="console-section">
               <div class="console-header">
                 <span class="console-label">{{ $t('home.realitySeed') }}</span>
@@ -167,12 +135,10 @@
               </div>
             </div>
 
-            <!-- 分割线 -->
             <div class="console-divider">
               <span>{{ $t('home.inputParams') }}</span>
             </div>
 
-            <!-- 输入区域 -->
             <div class="console-section">
               <div class="console-header">
                 <span class="console-label">{{ $t('home.simulationPrompt') }}</span>
@@ -189,7 +155,6 @@
               </div>
             </div>
 
-            <!-- 启动按钮 -->
             <div class="console-section btn-section">
               <button 
                 class="start-engine-btn"
@@ -205,7 +170,6 @@
         </div>
       </section>
 
-      <!-- 历史项目数据库 -->
       <HistoryDatabase />
     </div>
   </div>
@@ -219,100 +183,62 @@ import LanguageSwitcher from '../components/LanguageSwitcher.vue'
 
 const router = useRouter()
 
-// 表单数据
-const formData = ref({
-  simulationRequirement: ''
-})
-
-// 文件列表
+const formData = ref({ simulationRequirement: '' })
 const files = ref([])
-
-// 状态
 const loading = ref(false)
 const error = ref('')
 const isDragOver = ref(false)
-
-// 文件输入引用
 const fileInput = ref(null)
 
-// 计算属性:是否可以提交
-const canSubmit = computed(() => {
-  return formData.value.simulationRequirement.trim() !== '' && files.value.length > 0
-})
+const canSubmit = computed(() =>
+  formData.value.simulationRequirement.trim() !== '' && files.value.length > 0
+)
 
-// 触发文件选择
 const triggerFileInput = () => {
-  if (!loading.value) {
-    fileInput.value?.click()
-  }
+  if (!loading.value) fileInput.value?.click()
 }
 
-// 处理文件选择
 const handleFileSelect = (event) => {
-  const selectedFiles = Array.from(event.target.files)
-  addFiles(selectedFiles)
+  addFiles(Array.from(event.target.files))
 }
 
-// 处理拖拽相关
-const handleDragOver = (e) => {
-  if (!loading.value) {
-    isDragOver.value = true
-  }
+const handleDragOver = () => {
+  if (!loading.value) isDragOver.value = true
 }
 
-const handleDragLeave = (e) => {
+const handleDragLeave = () => {
   isDragOver.value = false
 }
 
 const handleDrop = (e) => {
   isDragOver.value = false
   if (loading.value) return
-  
-  const droppedFiles = Array.from(e.dataTransfer.files)
-  addFiles(droppedFiles)
+  addFiles(Array.from(e.dataTransfer.files))
 }
 
-// 添加文件
 const addFiles = (newFiles) => {
-  const validFiles = newFiles.filter(file => {
-    const ext = file.name.split('.').pop().toLowerCase()
-    return ['pdf', 'md', 'txt'].includes(ext)
-  })
-  files.value.push(...validFiles)
+  const valid = newFiles.filter(f => ['pdf', 'md', 'txt'].includes(f.name.split('.').pop().toLowerCase()))
+  files.value.push(...valid)
 }
 
-// 移除文件
 const removeFile = (index) => {
   files.value.splice(index, 1)
 }
 
-// 滚动到底部
 const scrollToBottom = () => {
-  window.scrollTo({
-    top: document.body.scrollHeight,
-    behavior: 'smooth'
-  })
+  window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })
 }
 
-// 开始模拟 - 立即跳转，API调用在Process页面进行
 const startSimulation = () => {
   if (!canSubmit.value || loading.value) return
-  
-  // 存储待上传的数据
   import('../store/pendingUpload.js').then(({ setPendingUpload }) => {
     setPendingUpload(files.value, formData.value.simulationRequirement)
-    
-    // 立即跳转到Process页面（使用特殊标识表示新建项目）
-    router.push({
-      name: 'Process',
-      params: { projectId: 'new' }
-    })
+    router.push({ name: 'Process', params: { projectId: 'new' } })
   })
 }
 </script>
 
 <style scoped>
-/* 全局变量与重置 */
 :root {
   --black: #000000;
   --white: #FFFFFF;
@@ -320,13 +246,8 @@ const startSimulation = () => {
   --gray-light: #F5F5F5;
   --gray-text: #666666;
   --border: #E5E5E5;
-  /* 
-    使用 Space Grotesk 作为主要标题字体，JetBrains Mono 作为代码/标签字体
-    确保已在 index.html 引入这些 Google Fonts 
-  */
   --font-mono: 'JetBrains Mono', monospace;
-  --font-sans: 'Space Grotesk', 'Noto Sans SC', system-ui, sans-serif;
-  --font-cn: 'Noto Sans SC', system-ui, sans-serif;
+  --font-sans: 'Space Grotesk', 'Noto Sans SC', 'Noto Sans', system-ui, sans-serif;
 }
 
 .home-container {
@@ -336,7 +257,7 @@ const startSimulation = () => {
   color: var(--black);
 }
 
-/* 顶部导航 */
+/* Navbar */
 .navbar {
   height: 60px;
   background: var(--black);
@@ -372,22 +293,16 @@ const startSimulation = () => {
   transition: opacity 0.2s;
 }
 
-.github-link:hover {
-  opacity: 0.8;
-}
+.github-link:hover { opacity: 0.8; }
 
-.arrow {
-  font-family: sans-serif;
-}
-
-/* 主要内容区 */
+/* Main content */
 .main-content {
   max-width: 1400px;
   margin: 0 auto;
   padding: 60px 40px;
 }
 
-/* Hero 区域 */
+/* Hero */
 .hero-section {
   display: flex;
   justify-content: space-between;
@@ -424,13 +339,16 @@ const startSimulation = () => {
   letter-spacing: 0.5px;
 }
 
+/* Единый размер заголовка для всех языков */
 .main-title {
-  font-size: 4.5rem;
+  font-size: 4rem;
   line-height: 1.2;
   font-weight: 500;
   margin: 0 0 40px 0;
-  letter-spacing: -2px;
+  letter-spacing: -1px;
   color: var(--black);
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 .gradient-text {
@@ -447,7 +365,8 @@ const startSimulation = () => {
   max-width: 640px;
   margin-bottom: 50px;
   font-weight: 400;
-  text-align: justify;
+  /* Убран text-align: justify — он давал разные результаты на разных языках */
+  text-align: left;
 }
 
 .hero-desc p {
@@ -479,7 +398,7 @@ const startSimulation = () => {
   font-size: 1.2rem;
   font-weight: 520;
   color: var(--black);
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   border-left: 3px solid var(--orange);
   padding-left: 15px;
   margin-top: 20px;
@@ -518,7 +437,7 @@ const startSimulation = () => {
 }
 
 .hero-logo {
-  max-width: 500px; /* 调整logo大小 */
+  max-width: 500px;
   width: 100%;
 }
 
@@ -536,11 +455,9 @@ const startSimulation = () => {
   transition: all 0.2s;
 }
 
-.scroll-down-btn:hover {
-  border-color: var(--orange);
-}
+.scroll-down-btn:hover { border-color: var(--orange); }
 
-/* Dashboard 双栏布局 */
+/* Dashboard */
 .dashboard-section {
   display: flex;
   gap: 60px;
@@ -549,15 +466,11 @@ const startSimulation = () => {
   align-items: flex-start;
 }
 
-.dashboard-section .left-panel,
-.dashboard-section .right-panel {
-  display: flex;
-  flex-direction: column;
-}
-
-/* 左侧面板 */
+/* Left panel */
 .left-panel {
   flex: 0.8;
+  display: flex;
+  flex-direction: column;
 }
 
 .panel-header {
@@ -601,9 +514,10 @@ const startSimulation = () => {
 
 .metric-value {
   font-family: var(--font-mono);
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: 520;
   margin-bottom: 5px;
+  /* Убран font-size: 1.8rem — на длинных русских словах выезжает */
 }
 
 .metric-label {
@@ -611,11 +525,9 @@ const startSimulation = () => {
   color: #999;
 }
 
-/* 项目模拟步骤介绍 */
 .steps-container {
   border: 1px solid var(--border);
   padding: 30px;
-  position: relative;
 }
 
 .steps-header {
@@ -650,11 +562,10 @@ const startSimulation = () => {
   font-weight: 700;
   color: var(--black);
   opacity: 0.3;
+  flex-shrink: 0;
 }
 
-.step-info {
-  flex: 1;
-}
+.step-info { flex: 1; }
 
 .step-title {
   font-weight: 520;
@@ -665,16 +576,19 @@ const startSimulation = () => {
 .step-desc {
   font-size: 0.85rem;
   color: var(--gray-text);
+  line-height: 1.5;
 }
 
-/* 右侧交互控制台 */
+/* Right panel */
 .right-panel {
   flex: 1.2;
+  display: flex;
+  flex-direction: column;
 }
 
 .console-box {
-  border: 1px solid #CCC; /* 外部实线 */
-  padding: 8px; /* 内边距形成双重边框感 */
+  border: 1px solid #CCC;
+  padding: 8px;
 }
 
 .console-section {
@@ -706,18 +620,10 @@ const startSimulation = () => {
   background: #FAFAFA;
 }
 
-.upload-zone.has-files {
-  align-items: flex-start;
-}
+.upload-zone.has-files { align-items: flex-start; }
+.upload-zone:hover { background: #F0F0F0; border-color: #999; }
 
-.upload-zone:hover {
-  background: #F0F0F0;
-  border-color: #999;
-}
-
-.upload-placeholder {
-  text-align: center;
-}
+.upload-placeholder { text-align: center; }
 
 .upload-icon {
   width: 40px;
@@ -760,10 +666,7 @@ const startSimulation = () => {
   font-size: 0.85rem;
 }
 
-.file-name {
-  flex: 1;
-  margin: 0 10px;
-}
+.file-name { flex: 1; margin: 0 10px; }
 
 .remove-btn {
   background: none;
@@ -842,7 +745,6 @@ const startSimulation = () => {
   overflow: hidden;
 }
 
-/* 可点击状态（非禁用） */
 .start-engine-btn:not(:disabled) {
   background: var(--black);
   border: 1px solid var(--black);
@@ -867,87 +769,16 @@ const startSimulation = () => {
   border: 1px solid #E5E5E5;
 }
 
-/* 引导动画：微妙的边框脉冲 */
 @keyframes pulse-border {
   0% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2); }
   70% { box-shadow: 0 0 0 6px rgba(0, 0, 0, 0); }
   100% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); }
 }
 
-/* 响应式适配 */
 @media (max-width: 1024px) {
-  .dashboard-section {
-    flex-direction: column;
-  }
-  
-  .hero-section {
-    flex-direction: column;
-  }
-  
-  .hero-left {
-    padding-right: 0;
-    margin-bottom: 40px;
-  }
-  
-  .hero-logo {
-    max-width: 200px;
-    margin-bottom: 20px;
-  }
-}
-</style>
-
-<style>
-/* English locale adjustments (unscoped to target html[lang]) */
-html[lang="en"] .main-title {
-  font-size: 3.5rem;
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  letter-spacing: -1px;
-}
-
-html[lang="en"] .hero-desc {
-  text-align: left;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  letter-spacing: 0;
-}
-
-html[lang="en"] .slogan-text {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  letter-spacing: 0;
-}
-
-html[lang="en"] .tag-row {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-}
-
-html[lang="en"] .navbar .nav-links {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-}
-
-/* Left pane: system status + workflow */
-html[lang="en"] .status-section {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-}
-
-html[lang="en"] .status-section .status-ready {
-  font-size: 1.6rem;
-}
-
-html[lang="en"] .status-section .metric-value {
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: 1.4rem;
-}
-
-html[lang="en"] .workflow-list .step-title {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-}
-
-html[lang="en"] .workflow-list .step-desc {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
-  font-size: 0.72rem !important;
-  line-height: 1.4 !important;
-}
-
-html[lang="en"] .workflow-list {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  .dashboard-section { flex-direction: column; }
+  .hero-section { flex-direction: column; }
+  .hero-left { padding-right: 0; margin-bottom: 40px; }
+  .hero-logo { max-width: 200px; margin-bottom: 20px; }
 }
 </style>

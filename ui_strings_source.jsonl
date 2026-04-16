@@ -1,0 +1,93 @@
+{"file": "frontend/src/components/HistoryDatabase.vue", "line": 448, "kind": "string", "source": "加载历史项目失败:", "context": "    console.error('加载历史项目失败:', error)"}
+{"file": "frontend/src/components/Step1GraphBuild.vue", "line": 216, "kind": "string", "source": "缺少项目或图谱信息", "context": "    console.error('缺少项目或图谱信息')"}
+{"file": "frontend/src/components/Step1GraphBuild.vue", "line": 237, "kind": "string", "source": "创建模拟失败:", "context": "      console.error('创建模拟失败:', res.error)"}
+{"file": "frontend/src/components/Step1GraphBuild.vue", "line": 241, "kind": "string", "source": "创建模拟异常:", "context": "    console.error('创建模拟异常:', err)"}
+{"file": "frontend/src/components/Step2EnvSetup.vue", "line": 680, "kind": "string", "source": "生成Agent人设", "context": "  if (newStage === '生成Agent人设' || newStage === 'generating_profiles') {"}
+{"file": "frontend/src/components/Step2EnvSetup.vue", "line": 682, "kind": "string", "source": "生成模拟配置", "context": "  } else if (newStage === '生成模拟配置' || newStage === 'generating_config') {"}
+{"file": "frontend/src/components/Step2EnvSetup.vue", "line": 689, "kind": "string", "source": "准备模拟脚本", "context": "  } else if (newStage === '准备模拟脚本' || newStage === 'copying_scripts') {"}
+{"file": "frontend/src/components/Step2EnvSetup.vue", "line": 907, "kind": "string", "source": "轮询状态失败:", "context": "    console.warn('轮询状态失败:', err)"}
+{"file": "frontend/src/components/Step2EnvSetup.vue", "line": 951, "kind": "string", "source": "获取 Profiles 失败:", "context": "    console.warn('获取 Profiles 失败:', err)"}
+{"file": "frontend/src/components/Step2EnvSetup.vue", "line": 1019, "kind": "string", "source": "获取 Config 失败:", "context": "    console.warn('获取 Config 失败:', err)"}
+{"file": "frontend/src/components/Step3Simulation.vue", "line": 427, "kind": "string", "source": "启动失败", "context": "      startError.value = res.error || '启动失败'"}
+{"file": "frontend/src/components/Step3Simulation.vue", "line": 532, "kind": "string", "source": "获取运行状态失败:", "context": "    console.warn('获取运行状态失败:', err)"}
+{"file": "frontend/src/components/Step3Simulation.vue", "line": 590, "kind": "string", "source": "获取详细状态失败:", "context": "    console.warn('获取详细状态失败:', err)"}
+{"file": "frontend/src/components/Step4Report.vue", "line": 857, "kind": "string", "source": "（该平台未获得回复）", "context": "          if (interview.redditAnswer && interview.redditAnswer !== '（该平台未获得回复）') {"}
+{"file": "frontend/src/components/Step4Report.vue", "line": 861, "kind": "string", "source": "（该平台未获得回复）", "context": "          if (interview.twitterAnswer && interview.twitterAnswer !== '（该平台未获得回复）') {"}
+{"file": "frontend/src/components/Step4Report.vue", "line": 1334, "kind": "string", "source": "(该平台未获得回复)", "context": "      return t === '（该平台未获得回复）' || t === '(该平台未获得回复)' || t === '[无回复]'"}
+{"file": "frontend/src/components/Step4Report.vue", "line": 1334, "kind": "string", "source": "[无回复]", "context": "      return t === '（该平台未获得回复）' || t === '(该平台未获得回复)' || t === '[无回复]'"}
+{"file": "frontend/src/components/Step4Report.vue", "line": 1334, "kind": "string", "source": "（该平台未获得回复）", "context": "      return t === '（该平台未获得回复）' || t === '(该平台未获得回复)' || t === '[无回复]'"}
+{"file": "frontend/src/components/Step4Report.vue", "line": 1474, "kind": "string", "source": "选择理由", "context": "          h('div', { class: 'reason-label' }, '选择理由'),"}
+{"file": "frontend/src/components/Step4Report.vue", "line": 1784, "kind": "string", "source": "等待开始", "context": "  return steps[0] || { noLabel: '--', title: '等待开始', status: 'todo', meta: '' }"}
+{"file": "frontend/src/components/Step4Report.vue", "line": 2014, "kind": "string", "source": "错误", "context": "  if (log.includes('ERROR') || log.includes('错误')) return 'error'"}
+{"file": "frontend/src/components/Step4Report.vue", "line": 2015, "kind": "string", "source": "警告", "context": "  if (log.includes('WARNING') || log.includes('警告')) return 'warning'"}
+{"file": "frontend/src/components/Step5Interaction.vue", "line": 725, "kind": "string", "source": "${msg.role === 'user' ? '提问者' : '你'}：${msg.content}", "context": "      .map(msg => `${msg.role === 'user' ? '提问者' : '你'}：${msg.content}`)"}
+{"file": "frontend/src/components/Step5Interaction.vue", "line": 727, "kind": "string", "source": "以下是我们之前的对话：\\n${historyContext}\\n\\n现在我的新问题是：${message}", "context": "    prompt = `以下是我们之前的对话：\\n${historyContext}\\n\\n现在我的新问题是：${message}`"}
+{"file": "frontend/src/views/Process.vue", "line": 10, "kind": "text", "source": "图谱构建", "context": "        <div class=\"step-name\">图谱构建</div>"}
+{"file": "frontend/src/views/Process.vue", "line": 26, "kind": "text", "source": "实时知识图谱", "context": "            <span class=\"header-title\">实时知识图谱</span>"}
+{"file": "frontend/src/views/Process.vue", "line": 30, "kind": "text", "source": "{{ graphData.node_count || graphData.nodes?.length || 0 }} 节点", "context": "              <span class=\"stat-item\">{{ graphData.node_count || graphData.nodes?.length || 0 }} 节点</span>"}
+{"file": "frontend/src/views/Process.vue", "line": 32, "kind": "text", "source": "{{ graphData.edge_count || graphData.edges?.length || 0 }} 关系", "context": "              <span class=\"stat-item\">{{ graphData.edge_count || graphData.edges?.length || 0 }} 关系</span>"}
+{"file": "frontend/src/views/Process.vue", "line": 36, "kind": "attr:title", "source": "刷新图谱", "context": "                <button class=\"action-btn\" @click=\"refreshGraph\" :disabled=\"graphLoading\" title=\"刷新图谱\">"}
+{"file": "frontend/src/views/Process.vue", "line": 36, "kind": "string", "source": "刷新图谱", "context": "                <button class=\"action-btn\" @click=\"refreshGraph\" :disabled=\"graphLoading\" title=\"刷新图谱\">"}
+{"file": "frontend/src/views/Process.vue", "line": 39, "kind": "string", "source": "isFullScreen ? '退出全屏' : '全屏显示'", "context": "                <button class=\"action-btn\" @click=\"toggleFullScreen\" :title=\"isFullScreen ? '退出全屏' : '全屏显示'\">"}
+{"file": "frontend/src/views/Process.vue", "line": 174, "kind": "text", "source": "图谱数据加载中...", "context": "            <p class=\"loading-text\">图谱数据加载中...</p>"}
+{"file": "frontend/src/views/Process.vue", "line": 192, "kind": "text", "source": "等待本体生成", "context": "            <p class=\"waiting-text\">等待本体生成</p>"}
+{"file": "frontend/src/views/Process.vue", "line": 193, "kind": "text", "source": "生成完成后将自动开始构建图谱", "context": "            <p class=\"waiting-hint\">生成完成后将自动开始构建图谱</p>"}
+{"file": "frontend/src/views/Process.vue", "line": 203, "kind": "text", "source": "图谱构建中", "context": "            <p class=\"waiting-text\">图谱构建中</p>"}
+{"file": "frontend/src/views/Process.vue", "line": 204, "kind": "text", "source": "数据即将显示...", "context": "            <p class=\"waiting-hint\">数据即将显示...</p>"}
+{"file": "frontend/src/views/Process.vue", "line": 228, "kind": "text", "source": "构建流程", "context": "          <span class=\"header-title\">构建流程</span>"}
+{"file": "frontend/src/views/Process.vue", "line": 237, "kind": "text", "source": "本体生成", "context": "                <div class=\"phase-title\">本体生成</div>"}
+{"file": "frontend/src/views/Process.vue", "line": 247, "kind": "text", "source": "接口说明", "context": "                <div class=\"detail-label\">接口说明</div>"}
+{"file": "frontend/src/views/Process.vue", "line": 255, "kind": "text", "source": "生成进度", "context": "                <div class=\"detail-label\">生成进度</div>"}
+{"file": "frontend/src/views/Process.vue", "line": 264, "kind": "text", "source": "生成的实体类型 ({{ projectData.ontology.entity_types?.length || 0 }})", "context": "                <div class=\"detail-label\">生成的实体类型 ({{ projectData.ontology.entity_types?.length || 0 }})</div>"}
+{"file": "frontend/src/views/Process.vue", "line": 277, "kind": "text", "source": "生成的关系类型 ({{ projectData.ontology.relation_types?.length || 0 }})", "context": "                <div class=\"detail-label\">生成的关系类型 ({{ projectData.ontology.relation_types?.length || 0 }})</div>"}
+{"file": "frontend/src/views/Process.vue", "line": 298, "kind": "text", "source": "等待本体生成...", "context": "                <div class=\"waiting-hint\">等待本体生成...</div>"}
+{"file": "frontend/src/views/Process.vue", "line": 308, "kind": "text", "source": "图谱构建", "context": "                <div class=\"phase-title\">图谱构建</div>"}
+{"file": "frontend/src/views/Process.vue", "line": 318, "kind": "text", "source": "接口说明", "context": "                <div class=\"detail-label\">接口说明</div>"}
+{"file": "frontend/src/views/Process.vue", "line": 326, "kind": "text", "source": "等待本体生成完成...", "context": "                <div class=\"waiting-hint\">等待本体生成完成...</div>"}
+{"file": "frontend/src/views/Process.vue", "line": 331, "kind": "text", "source": "构建进度", "context": "                <div class=\"detail-label\">构建进度</div>"}
+{"file": "frontend/src/views/Process.vue", "line": 342, "kind": "text", "source": "构建结果", "context": "                <div class=\"detail-label\">构建结果</div>"}
+{"file": "frontend/src/views/Process.vue", "line": 346, "kind": "text", "source": "实体节点", "context": "                    <span class=\"result-label\">实体节点</span>"}
+{"file": "frontend/src/views/Process.vue", "line": 350, "kind": "text", "source": "关系边", "context": "                    <span class=\"result-label\">关系边</span>"}
+{"file": "frontend/src/views/Process.vue", "line": 354, "kind": "text", "source": "实体类型", "context": "                    <span class=\"result-label\">实体类型</span>"}
+{"file": "frontend/src/views/Process.vue", "line": 366, "kind": "text", "source": "构建完成", "context": "                <div class=\"phase-title\">构建完成</div>"}
+{"file": "frontend/src/views/Process.vue", "line": 367, "kind": "text", "source": "准备进入下一步骤", "context": "                <div class=\"phase-api\">准备进入下一步骤</div>"}
+{"file": "frontend/src/views/Process.vue", "line": 388, "kind": "text", "source": "项目信息", "context": "            <span class=\"project-title\">项目信息</span>"}
+{"file": "frontend/src/views/Process.vue", "line": 392, "kind": "text", "source": "项目名称", "context": "              <span class=\"item-label\">项目名称</span>"}
+{"file": "frontend/src/views/Process.vue", "line": 396, "kind": "text", "source": "项目ID", "context": "              <span class=\"item-label\">项目ID</span>"}
+{"file": "frontend/src/views/Process.vue", "line": 400, "kind": "text", "source": "图谱ID", "context": "              <span class=\"item-label\">图谱ID</span>"}
+{"file": "frontend/src/views/Process.vue", "line": 404, "kind": "text", "source": "模拟需求", "context": "              <span class=\"item-label\">模拟需求</span>"}
+{"file": "frontend/src/views/Process.vue", "line": 454, "kind": "string", "source": "构建失败", "context": "  if (error.value) return '构建失败'"}
+{"file": "frontend/src/views/Process.vue", "line": 455, "kind": "string", "source": "构建完成", "context": "  if (currentPhase.value >= 2) return '构建完成'"}
+{"file": "frontend/src/views/Process.vue", "line": 456, "kind": "string", "source": "图谱构建中", "context": "  if (currentPhase.value === 1) return '图谱构建中'"}
+{"file": "frontend/src/views/Process.vue", "line": 457, "kind": "string", "source": "本体生成中", "context": "  if (currentPhase.value === 0) return '本体生成中'"}
+{"file": "frontend/src/views/Process.vue", "line": 458, "kind": "string", "source": "初始化中", "context": "  return '初始化中'"}
+{"file": "frontend/src/views/Process.vue", "line": 485, "kind": "string", "source": "环境搭建功能开发中...", "context": "  alert('环境搭建功能开发中...')"}
+{"file": "frontend/src/views/Process.vue", "line": 543, "kind": "string", "source": "已完成", "context": "  if (currentPhase.value > phase) return '已完成'"}
+{"file": "frontend/src/views/Process.vue", "line": 548, "kind": "string", "source": "进行中", "context": "    return '进行中'"}
+{"file": "frontend/src/views/Process.vue", "line": 550, "kind": "string", "source": "等待中", "context": "  return '等待中'"}
+{"file": "frontend/src/views/Process.vue", "line": 572, "kind": "string", "source": "没有待上传的文件，请返回首页重新操作", "context": "    error.value = '没有待上传的文件，请返回首页重新操作'"}
+{"file": "frontend/src/views/Process.vue", "line": 580, "kind": "string", "source": "正在上传文件并分析文档...", "context": "    ontologyProgress.value = { message: '正在上传文件并分析文档...' }"}
+{"file": "frontend/src/views/Process.vue", "line": 611, "kind": "string", "source": "本体生成失败", "context": "      error.value = response.error || '本体生成失败'"}
+{"file": "frontend/src/views/Process.vue", "line": 615, "kind": "string", "source": "未知错误", "context": "    error.value = '项目初始化失败: ' + (err.message || '未知错误')"}
+{"file": "frontend/src/views/Process.vue", "line": 615, "kind": "string", "source": "项目初始化失败:", "context": "    error.value = '项目初始化失败: ' + (err.message || '未知错误')"}
+{"file": "frontend/src/views/Process.vue", "line": 648, "kind": "string", "source": "加载项目失败", "context": "      error.value = response.error || '加载项目失败'"}
+{"file": "frontend/src/views/Process.vue", "line": 652, "kind": "string", "source": "加载项目失败:", "context": "    error.value = '加载项目失败: ' + (err.message || '未知错误')"}
+{"file": "frontend/src/views/Process.vue", "line": 652, "kind": "string", "source": "未知错误", "context": "    error.value = '加载项目失败: ' + (err.message || '未知错误')"}
+{"file": "frontend/src/views/Process.vue", "line": 671, "kind": "string", "source": "处理失败", "context": "      error.value = projectData.value?.error || '处理失败'"}
+{"file": "frontend/src/views/Process.vue", "line": 683, "kind": "string", "source": "正在启动图谱构建...", "context": "      message: '正在启动图谱构建...'"}
+{"file": "frontend/src/views/Process.vue", "line": 689, "kind": "string", "source": "图谱构建任务已启动...", "context": "      buildProgress.value.message = '图谱构建任务已启动...'"}
+{"file": "frontend/src/views/Process.vue", "line": 700, "kind": "string", "source": "启动图谱构建失败", "context": "      error.value = response.error || '启动图谱构建失败'"}
+{"file": "frontend/src/views/Process.vue", "line": 705, "kind": "string", "source": "启动图谱构建失败:", "context": "    error.value = '启动图谱构建失败: ' + (err.message || '未知错误')"}
+{"file": "frontend/src/views/Process.vue", "line": 705, "kind": "string", "source": "未知错误", "context": "    error.value = '启动图谱构建失败: ' + (err.message || '未知错误')"}
+{"file": "frontend/src/views/Process.vue", "line": 794, "kind": "string", "source": "处理中...", "context": "        message: task.message || '处理中...'"}
+{"file": "frontend/src/views/Process.vue", "line": 800, "kind": "string", "source": "✅ 图谱构建完成，正在加载完整数据...", "context": "        console.log('✅ 图谱构建完成，正在加载完整数据...')"}
+{"file": "frontend/src/views/Process.vue", "line": 809, "kind": "string", "source": "构建完成，正在加载图谱...", "context": "          message: '构建完成，正在加载图谱...'"}
+{"file": "frontend/src/views/Process.vue", "line": 819, "kind": "string", "source": "📊 加载完整图谱:", "context": "            console.log('📊 加载完整图谱:', projectResponse.data.graph_id)"}
+{"file": "frontend/src/views/Process.vue", "line": 821, "kind": "string", "source": "✅ 图谱加载完成", "context": "            console.log('✅ 图谱加载完成')"}
+{"file": "frontend/src/views/Process.vue", "line": 830, "kind": "string", "source": "图谱构建失败:", "context": "        error.value = '图谱构建失败: ' + (task.error || '未知错误')"}
+{"file": "frontend/src/views/Process.vue", "line": 830, "kind": "string", "source": "未知错误", "context": "        error.value = '图谱构建失败: ' + (task.error || '未知错误')"}
+{"file": "frontend/src/views/Process.vue", "line": 908, "kind": "string", "source": "等待图谱数据...", "context": "      .text('等待图谱数据...')"}
+{"file": "frontend/src/views/Process.vue", "line": 920, "kind": "string", "source": "未命名", "context": "    name: n.name || '未命名',"}
+{"file": "frontend/src/views/Process.vue", "line": 936, "kind": "string", "source": "未知", "context": "        source_name: nodeMap[e.source_node_uuid]?.name || '未知',"}
+{"file": "frontend/src/views/Process.vue", "line": 937, "kind": "string", "source": "未知", "context": "        target_name: nodeMap[e.target_node_uuid]?.name || '未知'"}
+{"file": "frontend/src/views/SimulationView.vue", "line": 223, "kind": "string", "source": "检查模拟状态失败:", "context": "    console.warn('检查模拟状态失败:', err)"}
