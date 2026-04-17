@@ -60,3 +60,9 @@ backend/uploads/
 
 # Локальный override (не коммитим)
 docker-compose.override.yml
+
+# VS Code workspace (локальный, не коммитим)
+*.code-workspace
+
+# Локальный docker-compose override
+docker-compose.override.yml
